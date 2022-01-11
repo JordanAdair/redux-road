@@ -49,7 +49,7 @@ const gameReducer = (state = initialWagonState, action) => {
 					days: state.days + action.payload,
 				};
 			} else {
-				// If the player doesn't have sufficient supplies, return back the current state
+				// If the player doesn't have sufficient supplies, don't progress, return back the current state.
 				return state;
 			}
 
