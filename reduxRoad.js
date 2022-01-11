@@ -8,6 +8,7 @@ const initialWagonState = {
 /**
  * ACTIONS
  */
+
 const travelXDays = (num) => {
 	return {
 		type: "travel",
