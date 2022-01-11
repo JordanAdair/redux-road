@@ -13,6 +13,7 @@ const gameReducer = (state = initialWagonState, action) => {
 			return {
 				...state,
 				supplies: state.supplies + 15,
+				distance: state.distance,
 				days: state.days + 1,
 			};
 
@@ -23,6 +24,15 @@ const gameReducer = (state = initialWagonState, action) => {
 				supplies: state.supplies - 20,
 				distance: state.distance + 10 * action.payload,
 				days: state.days + action.payload,
+			};
+
+		// If a player drives off-road or across deep rivers, the wagon may tip! You’ll need to spend some supplies and a day to fix it.
+		case "tippedWagon":
+			return {
+				...state,
+				supplies: state.supplies - 30,
+				distance: state.distance,
+				days: state.days + 1,
 			};
 
 		default:
